@@ -1,14 +1,17 @@
 import json
 import os
-from chromadb import Client, Settings
+import chromadb
+from chromadb.config import Settings
 from chromadb.utils import embedding_functions
 import ollama
 
 # ---------------- CONFIG ----------------
-INPUT_FILE = "Cleaned Data/chunks.json"
-CHROMA_DB_PATH = "Cleaned Data/chroma_db"
+# Get the directory where the script is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+INPUT_FILE = os.path.join(BASE_DIR, "Cleaned Data", "chunks.json")
+CHROMA_DB_PATH = os.path.join(BASE_DIR, "Cleaned Data", "chroma_db")
 COLLECTION_NAME = "bs_rag_collection"
-EMBEDDING_MODEL = "nomic-embed-text"  # Ollama embedding model
+EMBEDDING_MODEL = "embeddinggemma:latest"  # Standard embedding model, change if using custom
 # --------------------------------------
 
 
@@ -35,10 +38,11 @@ def initialize_chromadb(db_path, collection_name):
     os.makedirs(db_path, exist_ok=True)
     
     # Initialize ChromaDB client with persistent storage
-    client = Client(Settings(
-        persist_directory=db_path,
-        anonymized_telemetry=False
-    ))
+    # Updated for ChromaDB >= 0.4.0
+    client = chromadb.PersistentClient(
+        path=db_path,
+        settings=Settings(anonymized_telemetry=False)
+    )
     
     # Try to get existing collection or create new one
     try:
