@@ -9,9 +9,9 @@ import ollama
 # Get the directory where the script is located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(BASE_DIR, "Cleaned Data", "chunks.json")
-CHROMA_DB_PATH = os.path.join(BASE_DIR, "Cleaned Data", "chroma_db")
+CHROMA_DB_PATH = os.path.join(BASE_DIR, "chroma_db")
 COLLECTION_NAME = "bs_rag_collection"
-EMBEDDING_MODEL = "embeddinggemma:latest"  # Standard embedding model, change if using custom
+EMBEDDING_MODEL = "nomic-embed-text"  # Standard embedding model, change if using custom
 # --------------------------------------
 
 
