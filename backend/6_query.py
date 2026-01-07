@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Import the retrieval function from 5._retriever.py
 # Using the module name with underscore prefix
-retriever = __import__("5._retriever")
+retriever = __import__("5_retriever")
 
 # ---------------- CONFIG ----------------
 GENERATION_MODEL = "llama3"  # Ollama generation model

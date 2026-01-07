@@ -69,23 +69,23 @@ def retrieve_relevant_chunks(query, top_k=TOP_K):
 
 
 
-user_query = input("\n🔍 Enter your query: ").strip()
+# user_query = input("\n🔍 Enter your query: ").strip()
 
-if not user_query:
-    print("❌ Empty query")
-    exit()
+# if not user_query:
+#     print("❌ Empty query")
+#     exit()
 
-# Retrieve relevant chunks
-retrieved_chunks = retrieve_relevant_chunks(user_query, top_k=5)
+# # Retrieve relevant chunks
+# retrieved_chunks = retrieve_relevant_chunks(user_query, top_k=5)
 
-# Print results
-print("\n" + "="*80)
-print("📄 RETRIEVED CHUNKS (Ranked by Relevance)")
-print("="*80 + "\n")
+# # Print results
+# print("\n" + "="*80)
+# print("📄 RETRIEVED CHUNKS (Ranked by Relevance)")
+# print("="*80 + "\n")
 
-for chunk in retrieved_chunks:
-    print(f"🔹 Rank: {chunk['rank']}")
-    print(f"📊 Similarity Score: {chunk['score']:.4f}")
-    print(f"📂 Metadata: {chunk['metadata']}")
-    print(f"📝 Text:\n{chunk['text']}\n")
-    print("-" * 80 + "\n")
+# for chunk in retrieved_chunks:
+#     print(f"🔹 Rank: {chunk['rank']}")
+#     print(f"📊 Similarity Score: {chunk['score']:.4f}")
+#     print(f"📂 Metadata: {chunk['metadata']}")
+#     print(f"📝 Text:\n{chunk['text']}\n")
+#     print("-" * 80 + "\n")
